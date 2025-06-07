@@ -1,0 +1,7 @@
+pandas
+requests
+google-api-python-client
+python-dotenv
+sqlalchemy
+apache-airflow-providers-postgres>=5.0.0
+psycopg2-binary
