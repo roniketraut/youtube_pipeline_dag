@@ -65,39 +65,4 @@ The default user/db in the postgres container (from official Airflow docker-comp
 
 If you are connecting to a different user/db for youtube_stats, adjust accordingly.
 
-Inside psql, create the youtube_stats database if it doesn't exist (if your postgres_default connection is not using the airflow database):
--- If connecting as 'airflow' user to 'airflow' db, you might want to create a new user and DB for youtube_stats for separation
--- For simplicity, if using the 'postgres' superuser for 'postgres_default' connection:
--- First, connect as default 'postgres' superuser if not already:
--- docker exec -it <your_project_name>_postgres_1 psql -U postgres
-CREATE DATABASE youtube_stats;
-\c youtube_stats -- Connect to the new database
-Create the target table (adjust columns and types based on your data_transformation.py output):
-CREATE TABLE IF NOT EXISTS youtube_channel_stats (
-    channel_name VARCHAR(255),
-    channel_description TEXT,
-    custom_url VARCHAR(255),
-    publish_date TIMESTAMP,
-    default_language VARCHAR(20),
-    localized_title VARCHAR(255),
-    local_description TEXT,
-    country VARCHAR(10),
-    content_detail_related_playlist_likes VARCHAR(255),
-    view_count BIGINT,
-    suscriber_count BIGINT,
-    hidden_subscriber BOOLEAN,
-    video_count INTEGER,
-    contentdetails_relatedplaylists_uploads VARCHAR(255),
-    channel_id VARCHAR(255) PRIMARY KEY,
-    channel_label VARCHAR(255), -- Added based on your settings.py
-    date DATE -- Added based on your settings.py
-);
-Type \q to exit psql.
-Running the Pipeline
-In the Airflow UI (http://localhost:8080), find the DAG named youtube_data_pipeline (or youtube_data_pipeline_taskflow).
-Unpause the DAG by toggling the switch to "On".
-The DAG is scheduled to run daily by default. You can also trigger it manually by clicking the "play" button next to the DAG name.
-Customization
-Channel List: Modify the channels dictionary in plugins/youtube/settings.py to change or add YouTube channels to track.
-Schedule Interval: Change the schedule parameter in the @dag decorator in dags/youtube_pipeline_dag.py.
-Transformations: Update the logic in plugins/youtube/data_transformation.py.
+
