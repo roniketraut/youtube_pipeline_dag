@@ -62,7 +62,9 @@ Connect to the postgres Docker container:
 docker exec -it <your_project_name>_postgres_1 psql -U airflow -d airflow
 Replace <your_project_name>_postgres_1 with the actual container name (use `docker ps`)
 The default user/db in the postgres container (from official Airflow docker-compose) is airflow/airflow.
+
 If you are connecting to a different user/db for youtube_stats, adjust accordingly.
+
 Inside psql, create the youtube_stats database if it doesn't exist (if your postgres_default connection is not using the airflow database):
 -- If connecting as 'airflow' user to 'airflow' db, you might want to create a new user and DB for youtube_stats for separation
 -- For simplicity, if using the 'postgres' superuser for 'postgres_default' connection:
