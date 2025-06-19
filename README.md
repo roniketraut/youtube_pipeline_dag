@@ -25,6 +25,7 @@ Project Structure
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
 
 Prerequisites
 Docker
