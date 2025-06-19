@@ -10,7 +10,7 @@ Loading: Loads the transformed data into a specified table in a PostgreSQL datab
 Orchestration: Uses Apache Airflow for scheduling (e.g., daily runs) and monitoring the pipeline.
 Containerized: Leverages Docker and Docker Compose for a consistent and isolated development and execution environment.
 Project Structure
-. ├── dags/ │ └── youtube_pipeline_dag.py # The main Airflow DAG file ├── plugins/ │ └── youtube/ # Custom Python modules for the pipeline │ ├── init.py │ ├── data_transformation.py # Handles data cleaning and transformation │ ├── load_data.py # Handles loading data to PostgreSQL │ └── settings.py # Contains API key loading, channel list, and data extraction logic ├── .env.example # Example environment file for configuration ├── docker-compose.yml # Docker Compose file to set up Airflow and PostgreSQL ├── requirements.txt # (Optional) Python dependencies for custom plugins ├── .gitignore └── README.md
+<pre> ```text . ├── dags/ │ └── youtube_pipeline_dag.py # The main Airflow DAG file ├── plugins/ │ └── youtube/ # Custom Python modules for the pipeline │ ├── __init__.py │ ├── data_transformation.py # Handles data cleaning and transformation │ ├── load_data.py # Handles loading data to PostgreSQL │ └── settings.py # Contains API key loading, channel list, and data extraction logic ├── .env.example # Example environment file for configuration ├── docker-compose.yml # Docker Compose file to set up Airflow and PostgreSQL ├── requirements.txt # Python dependencies for custom plugins ├── .gitignore └── README.md ``` </pre>
 
 Prerequisites
 Docker
